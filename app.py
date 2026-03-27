@@ -3,29 +3,6 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# Heroku PORT 환경변수 읽기
-port = int(os.environ.get("PORT", 5000))
-
-@app.route('/health', methods=['GET'])
-def health():
-    return jsonify({'status': 'ok', 'message': 'App is running'}), 200
-
-@app.route('/test-auth', methods=['GET'])
-def test_auth():
-    access_token = os.environ.get('OAUTH_ACCESS_TOKEN')
-    refresh_token = os.environ.get('OAUTH_REFRESH_TOKEN')
-    return jsonify({
-        'access_token_set': bool(access_token),
-        'refresh_token_set': bool(refresh_token)
-    }), 200
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port, debug=False)
-from flask import Flask, jsonify
-import os
-
-app = Flask(__name__)
-
 @app.route('/health', methods=['GET'])
 def health():
     return jsonify({'status': 'ok', 'message': 'App is running'}), 200
