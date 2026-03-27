@@ -20,6 +20,5 @@ def test_auth():
         "refresh_token_set": bool(refresh_token != 'Not set')
     }), 200
 
-if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+# Gunicorn이 이 부분을 무시하므로, if __name__ == '__main__' 블록은 제거됨
+# Procfile에서 gunicorn이 app 객체를 직접 로드함
