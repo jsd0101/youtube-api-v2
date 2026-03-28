@@ -1,5 +1,4 @@
-﻿client_secret*.json
-*token*.py
+﻿*token*.py
 credentials.json
 key.json
 .env
